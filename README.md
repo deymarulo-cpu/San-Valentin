@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>¿Quieres ser mi San Valentín?</title>
-
+<meta charset="UTF-8">
+<title>¿Quieres ser mi San Valentín? 💖</title>
 <style>
 body {
   margin: 0;
   height: 100vh;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/5/57/M31bobo.jpg') no-repeat center center fixed;
+  /* Fondo con flores de loto */
+  background: url('https://cdn.magicdecor.in/com/2023/11/08113530/Beautiful-Sparkling-Pink-Lotus-in-Water-Wallpaper-for-Wall.jpg') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -17,63 +18,107 @@ body {
   color: white;
 }
 
+/* Opcional: animación suave de brillo */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 182, 193, 0.3); /* filtro rosa suave */
+  z-index: 0;
+}
+
 .container {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.5);
   padding: 40px;
-  border-radius: 20px;
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
+  display: flex;
+  flex-direction: column; /* todo en columna */
+  align-items: center;
+  gap: 20px;
+  position: relative; /* para que esté sobre el filtro */
+  z-index: 1;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #ff6699;
+  margin-bottom: 20px;
 }
 
 button {
-  padding: 15px 30px;
-  margin: 10px;
+  padding: 15px 35px;
+  margin: 5px;
   border: none;
   border-radius: 30px;
   font-size: 18px;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 .yes {
   background-color: pink;
+  color: white;
 }
 
 .no {
-  background-color: lightblue;
+  background-color: #ff99cc;
+  color: white;
+  position: relative;
+}
+
+.button-container {
+  display: flex;
+  gap: 15px;
 }
 
 iframe.spotify-embed {
-  border-radius: 12px;
-  margin-top: 15px;
+  border-radius: 15px;
+  margin-top: 10px;
 }
 </style>
-
 </head>
 <body>
 
 <div class="container">
-  <h1>¿Leyley quieres ser mi San Valentin atrasado? 💖</h1>
+  <h1>¿Leyley quieres ser mi San Valentín atrasado? 💖</h1>
 
-  <!-- Reproductor Spotify -->
+  <!-- Botones en línea -->
+  <div class="button-container">
+    <button class="yes" onclick="aceptar()">Sí 💕</button>
+    <button class="no" onmouseover="mover()">No 😢</button>
+  </div>
+
+  <!-- Spotify debajo de los botones -->
   <iframe class="spotify-embed"
     src="https://open.spotify.com/embed/track/3EK4tGkSiO5xvvB5sM4tln"
     width="300" height="80"
     frameborder="0"
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
   </iframe>
-
-  <button class="yes" onclick="aceptar()">Sí 💕</button>
-  <button class="no" onmouseover="mover()">No 😢</button>
 </div>
 
 <script>
 function aceptar() {
-  alert("❤️ En este día tan especial, aunque la distancia nos separe, quiero recordarte que todos los días a tu lado son extraordinarios mi linda Leyley💖. Una fecha en el calendario me es indiferente cuando tengo la fortuna de compartir mi vida contigo 💕 porque lo que hace especial a este dia no es la fecha sino nosotros.No importa que hoy no estemos juntos 💌; lo verdaderamente especial son nuestros encuentros, los momentos que compartimos, porque somos nosotros quienes damos magia a cada día 💞.");
-  // Aquí podrías agregar más acciones si quieres
+  alert("❤️ En este día tan especial, aunque la distancia nos separe, quiero recordarte que todos los días a tu lado son extraordinarios mi linda Leyley💖. Una fecha en el calendario me es indiferente cuando tengo la fortuna de compartir mi vida contigo 💕 porque lo que hace especial a este dia no es la fecha sino nosotros. No importa que hoy no estemos juntos 💌; lo verdaderamente especial son nuestros encuentros, los momentos que compartimos, porque somos nosotros quienes damos magia a cada día 💞.");
 }
 
 function mover() {
   const btn = document.querySelector('.no');
+  btn.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+  btn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
   btn.style.position = 'absolute';
-  btn.style.top = Math.random() * window.innerHeight + 'px';
+}
+</script>
+
+</body>
+</html>
+
   btn.style.left = Math.random() * window.innerWidth + 'px';
 }
 </script>
