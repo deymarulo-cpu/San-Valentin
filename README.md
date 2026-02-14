@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -122,6 +121,3 @@ function mover() {
   btn.style.left = Math.random() * window.innerWidth + 'px';
 }
 </script>
-
-</body>
-</html>
